@@ -2120,19 +2120,19 @@ refresh:
                 size_t primary_row = 1 + header_offset - (has_secondary_help ? 2 : 0);
                 if (selected_menu_entry->sub == NULL) {
                     if (editor_enabled) {
-                        set_cursor_pos_helper((terms[0]->cols - 37) / 2, primary_row);
-                        print("%sARROWS\e[0m Select    %sENTER\e[0m Boot    %sE\e[0m Edit",
+                        set_cursor_pos_helper((terms[0]->cols - 43) / 2, primary_row);
+                        print("%sARROWS/J/K\e[0m Select    %sENTER/L\e[0m Boot    %sE\e[0m Edit",
                               interface_help_colour, interface_help_colour, interface_help_colour);
                     } else {
-                        set_cursor_pos_helper((terms[0]->cols - 27) / 2, primary_row);
-                        print("%sARROWS\e[0m Select    %sENTER\e[0m Boot",
+                        set_cursor_pos_helper((terms[0]->cols - 33) / 2, primary_row);
+                        print("%sARROWS/J/K\e[0m Select    %sENTER/L\e[0m Boot",
                               interface_help_colour, interface_help_colour);
                     }
                 } else {
                     const char *action = selected_menu_entry->expanded ? "Collapse" : "Expand";
-                    size_t len = 23 + strlen(action);
+                    size_t len = 29 + strlen(action);
                     set_cursor_pos_helper((terms[0]->cols - len) / 2, primary_row);
-                    print("%sARROWS\e[0m Select    %sENTER\e[0m %s",
+                    print("%sARROWS/J/K\e[0m Select    %sENTER/L\e[0m %s",
                           interface_help_colour, interface_help_colour, action);
                 }
             }
